@@ -62,24 +62,13 @@
 <script>
     function chay(a) {
         let exist = document.getElementById("nhapso").innerHTML;
-        let chuoi = document.getElementById("nhapso").innerHTML = exist + a.id;
+        chuoi = document.getElementById("nhapso").innerHTML = exist + a.id;
 
-        if (a.id == "+" || a.id == "-" || a.id == "*" || a.id == "/"){
-            sothunhat = chuoi.substring(0,(chuoi.length - 1));
-            pheptinh = a.id;
+        if (a.id === "="){
+            let result = chuoi.substring(0,chuoi.length - 1);
+             document.getElementById("nhapso").innerHTML = eval(result);
         }
-        if (a.id == "="){
-            let sothuhai = chuoi.substring((parseInt(sothunhat.length+1)),parseInt(chuoi.length - 1));
-            if (pheptinh == "+")
-                document.getElementById("nhapso").innerHTML = parseInt(sothunhat) + parseInt(sothuhai);
-            if (pheptinh == "-")
-                document.getElementById("nhapso").innerHTML = parseInt(sothunhat) - parseInt(sothuhai);
-            if (pheptinh == "*")
-                document.getElementById("nhapso").innerHTML = parseInt(sothunhat) * parseInt(sothuhai);
-            if (pheptinh == "/")
-                document.getElementById("nhapso").innerHTML = parseInt(sothunhat) / parseInt(sothuhai);
-        }
-        if (a.id == "C"){
+        if (a.id === "C"){
             document.getElementById("nhapso").innerHTML = "";
         }
     }
